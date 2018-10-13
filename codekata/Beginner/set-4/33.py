@@ -1,2 +1,2 @@
 s = input()
-print(len(s.split(' ')))
+print(len(s.replace("/w+",' ')))
