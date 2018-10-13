@@ -1,4 +1,7 @@
-def swap(x,y):
-    return y,x
-x,y = map(int,input().split())
-print(*swap(x,y))
+import re
+s = input()
+count=0
+for i in s:
+    if not(i.isalnum()):
+        count+=1
+print(count)
