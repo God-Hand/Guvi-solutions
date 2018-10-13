@@ -1,1 +1,2 @@
-print(int(input())+1)
+next = int(input())+1
+print(next)
