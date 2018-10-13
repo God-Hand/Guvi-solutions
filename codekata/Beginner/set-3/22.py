@@ -1,2 +1,3 @@
-n,a,d = map(int,input().split())
-print(n*(a+d))
+n = int(input())
+l = list(map(int,input().split()))
+print(max(l))
