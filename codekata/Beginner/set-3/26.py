@@ -17,4 +17,4 @@ def quickSort(arr,low,high):
 n = int(input())
 l = list(map(int,input().split()))
 quickSort(l,0,n-1)
-print(l[n//2])
+print(*l)
