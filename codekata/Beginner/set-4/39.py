@@ -1,4 +1,2 @@
-def swap(x,y):
-    return y,x
-x, y = map(int,input().split())
-print(*swap(x,y))
+l = list(map(int,input().split()))
+print(max(l))
