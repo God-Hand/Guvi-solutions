@@ -1,5 +1,7 @@
 n = input()
 if n in 'aeiou':
     print("Vowel")
-else:
+elif n in 'bcdfghjklmnpqrstvwxyz':
     print("Consonant")
+else:
+    print("Invalid")
