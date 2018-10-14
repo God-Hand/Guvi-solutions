@@ -1,7 +1,8 @@
-n = int(inpput())
-l,r = map(int,input().split())
+import math
+s = input()
+l = len(s)
 
-if l<=n and n<=r:
-    print("yes")
+if l%2:
+    print(s[:l//2] + '*' +s[l//2+1:])
 else:
-    print("no")
+    print(s[:l//2-1] + '**' +s[l//2+1:])
