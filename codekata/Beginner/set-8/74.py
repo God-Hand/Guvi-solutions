@@ -1,1 +1,2 @@
-print(round(float(input())))
+s = input()
+print(round(float(s)))
