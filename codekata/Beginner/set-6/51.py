@@ -5,5 +5,4 @@ def printDigits(n):
     printDigits(n//10)
     print(n%10,end=' ')
 
-n = int(input())
-printDigits(n)
+printDigits(int(input()))
