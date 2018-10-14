@@ -1,4 +1,6 @@
-import math
-n = int(math.log(int(input()),2))
-print(2**(n+1))
+s = input()
+if s==s[::-1]:
+    print("yes")
+else:
+    print("no")
 
