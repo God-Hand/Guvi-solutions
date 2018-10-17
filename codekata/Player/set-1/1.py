@@ -1,2 +1,2 @@
-s = input()[::-1]
+s = reversed(input())
 print(s)
