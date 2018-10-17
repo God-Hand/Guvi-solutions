@@ -1,5 +1,8 @@
 n = int(input())
-if not n&(n-1):
-    print("yes")
-else:
-    print("no")
+n2 = n//2
+count = 1
+while n2!=0:
+    n2-=1
+    count+=1
+print(count)
+    
