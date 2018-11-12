@@ -1,4 +1,4 @@
 n = int(input())
 l = list(map(int,input().split()))
 for i in range(n):
-    print(sum(l[:i+1])+sum(l[i:]), end=' ')
+    print(sum(l[i:]), end=' ')
