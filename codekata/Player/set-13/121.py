@@ -1,6 +1,11 @@
-def countBits(n):
-    if not n:
-        return 0
-    else:
-        return 1 + countBits(n//2)
-print(countBits(int(input())))
+import math
+n=int(input())
+l=[]
+for i in range(n):
+    l.append(input())
+min,small=math.inf,""
+for i in l:
+    if ord(i[0])<min:
+	min=ord(i[0])
+	small=i
+print(small)
