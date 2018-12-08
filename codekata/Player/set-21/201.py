@@ -1,6 +1,10 @@
-s = input()
-l = [False]*(26)
-for i in s:
-    if l[ord(i)-97]==False:
-        l[ord(i)-97]=True
-        print(i,end="")
+def catalan(n): 
+    if n <=1 : 
+        return 1 
+    res = 0 
+    for i in range(n): 
+        res += catalan(i) * catalan(n-i-1)   
+    return res 
+
+for i in range(int(input())+1):
+    print(catalan(i),end=" ")
