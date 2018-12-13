@@ -7,23 +7,16 @@ using namespace std;
 map<int,int> m;
 
 int main(){
-    int n;
+    int n, temp, sum=0;
     cin>>n;
-    int min=1000000, temp;
-    map<int, int>::iterator it;
     for(int i=0; i<n; i++){
-        cin>>temp;
-        it = m.find(temp);
-        if(it == m.end()){
-            m.insert(make_pair(temp, 1));
-        }else{
-            m[temp] += 1;
-        }
-        if(m[min]<m[temp]){
-            min = temp;
-        }else if(min>temp && m[min]<m[temp]){
-            min = temp;
+        for(int j=0; j<n; j++){
+            cin>>temp;
+            if(i==j){
+                sum+=temp;
+            }
         }
     }
-    cout<<min;
+    cout<<sum;
+    return 0;
 }
