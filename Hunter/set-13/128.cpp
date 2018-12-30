@@ -1,44 +1,65 @@
-#include<iostream>
-#include<algorithm>
-#include<vector>
+// Manacher's algorithm
+#include<bits/stdc++.h>
+
 using namespace std;
 
-string str;
-int longestPalindrome(int center, int n, int i){
-    if(center-i==-1 || center+i==n || str[center-i]!=str[center+i]){
+int longestPalindrome(int center, int i, string str){
+    if(center-i==-1 || center+i==str.length() || str[center-i]!=str[center+i]){
         return 0;
     }
     if(str[center-i]=='|'){
-        return longestPalindrome(center, n, i+1);
+        return longestPalindrome(center, i+1, str);
     }
-    return 1+longestPalindrome(center, n, i+1);
+    return 1+longestPalindrome(center, i+1, str);
 }
 
-string getPalindromicString(string str, int length, int mid_pos){
-    string s;
-    for(int i=mid_pos-2*(length-1); i<mid_pos+2*(length)-1; i++){
-        if(str[i]!='|')
-            s += str[i];
+void printPalindromes(string str){
+    int length;
+    string new_string  = "";
+    string output = "";
+
+    set<string> s;
+    s.insert("");
+    for(int i=0; i<str.length()-1; i++){
+        new_string.push_back(str[i]);
+        new_string.push_back('|');
     }
-    return s;
+    new_string.push_back(str[str.length()-1]);
+    for(int i=0; i<new_string.length(); i++){
+        length = longestPalindrome(i, 1, new_string);
+        if(1<length){
+            int start = i - length*2, finish = i + length*2 + 1;
+            while(start < finish){
+                output = "";
+                for(int k=start; k<finish; k++){
+                    if(new_string[k] != '|')
+                        output.push_back(new_string[k]);
+                }
+                start += 2;
+                finish -= 2;
+                if(output.length()>1)
+                    s.insert(output);
+            }
+        }
+    }
+    s.erase(s.find(""));
+    vector<string> out;
+    for(auto it = s.begin(); it!=s.end(); it++){
+        out.push_back(*it);
+    }
+    sort(out.begin(), out.end(), [](string s1, string s2){
+        if(s1.length()==s2.length())
+            return s1 < s2;
+        return s1.length()<s2.length();
+    });
+    for(int i=0; i<out.size(); i++){
+        cout<<out[i]<<endl;
+    }
 }
 
 int main(){
     string input;
     cin>>input;
-    int n,length;
-    n = input.length();
-    str="";
-    for(int i=0; i<n-1; i++){
-        str.push_back(input[i]);
-        str.push_back('|');
-    }
-    str.push_back(input[n-1]);
-    for(int i=0; i<str.length(); i++){
-        length = 1+longestPalindrome(i,str.length(),1);
-        if(2<=length){
-            cout<<i<<" "<<length<<" "<<getPalindromicString(str, length, i)<<endl;;
-        }
-    }
+    printPalindromes(input);
     return 0;
 }
