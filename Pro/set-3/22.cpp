@@ -13,6 +13,7 @@ int maxSumWithoutNeighbours(vector<int> vec){
     return max(include, exclude);
 }
 
+int main(){
     int n;
     cin>>n;
     vector<int> vec(n);
