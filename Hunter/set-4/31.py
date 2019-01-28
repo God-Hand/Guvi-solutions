@@ -12,6 +12,7 @@ l2 = list(sorted(l2, reverse=True))
 if len(l2)%2:
     l2 = l2[1:]
 
+for i in l2:
     p *= i
 
 print(p)
